@@ -10,7 +10,7 @@
 
 namespace web_articulos
 {
-    public partial class ArticulosLista
+    public partial class FormularioProducto
     {
     }
 }
