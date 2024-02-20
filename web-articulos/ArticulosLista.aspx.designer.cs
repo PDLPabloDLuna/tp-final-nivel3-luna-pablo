@@ -11,16 +11,16 @@ namespace web_articulos
 {
 
 
-    public partial class ProductosLista
+    public partial class ArticulosLista
     {
 
         /// <summary>
-        /// dgvProductos control.
+        /// dgvArticulos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvProductos;
+        protected global::System.Web.UI.WebControls.GridView dgvArticulos;
     }
 }

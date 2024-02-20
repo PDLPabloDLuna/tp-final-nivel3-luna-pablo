@@ -10,12 +10,17 @@ namespace negocio
     public class ArticuloNegocio
     {
         private AccesoDatos datos = new AccesoDatos();
-        public List<Articulo> listar()
+        public List<Articulo> listar(string id = "")
         {
             List<Articulo> lista = new List<Articulo>();
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, IdMarca, IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where IdMarca = M.Id AND IdCategoria = C.Id");
+                string add = "";
+                if (id != "")
+                    add = " and A.Id = " + id;
+
+                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, IdMarca, IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where IdMarca = M.Id AND IdCategoria = C.Id " + add);
+
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
