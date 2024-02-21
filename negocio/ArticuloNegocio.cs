@@ -15,12 +15,11 @@ namespace negocio
             List<Articulo> lista = new List<Articulo>();
             try
             {
-                string add = "";
+                string condicionId = "";
                 if (id != "")
-                    add = " and A.Id = " + id;
+                    condicionId = " and A.Id = " + id;
 
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, IdMarca, IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where IdMarca = M.Id AND IdCategoria = C.Id " + add);
-
+                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, IdMarca, IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where IdMarca = M.Id AND IdCategoria = C.Id " + condicionId);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -70,7 +69,6 @@ namespace negocio
                 datos.setearParametro("@idMarca", nuevo.NombreMarca.Id);
                 datos.setearParametro("@idCat", nuevo.TipoCat.Id);
                 datos.setearParametro("@img", nuevo.UrlImagen);
-
 
                 datos.ejecutarAccion();
             }

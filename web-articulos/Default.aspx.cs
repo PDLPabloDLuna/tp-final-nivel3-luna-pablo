@@ -11,17 +11,31 @@ namespace web_articulos
 {
     public partial class Default : System.Web.UI.Page
     {
-        public List<Articulo> ListaArticulo { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulo = negocio.listar();
-
             if (!IsPostBack)
             {
-                repRepeater.DataSource = ListaArticulo;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Session.Add("ListaHome", negocio.listar());
+                repRepeater.DataSource = Session["ListaHome"];
                 repRepeater.DataBind();
             }
+        }
+
+        protected void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> lista = (List<Articulo>)Session["listaHome"];
+            List<Articulo> listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtFiltro.Text.ToUpper()));
+            repRepeater.DataSource = listaFiltrada;
+            repRepeater.DataBind();
+        }
+
+        protected void btnLimpiarFiltro_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Text = "";
+            repRepeater.DataSource = (List<Articulo>)Session["ListaHome"];
+            repRepeater.DataBind();
         }
     }
 }

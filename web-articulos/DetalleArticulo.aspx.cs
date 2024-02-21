@@ -19,26 +19,19 @@ namespace web_articulos
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 Articulo seleccionado = (negocio.listar(id))[0];
 
-                //pre cargar las campos de DetalleArticulo                    
+                //Cargando los campos de DetalleArticulo.aspx                  
                 txtCodigo.Text = seleccionado.Codigo.ToString();
                 txtNombre.Text = seleccionado.Nombre;
                 txtDescripcion.Text = seleccionado.Descripcion;
                 txtMarca.Text = seleccionado.NombreMarca.ToString();
                 txtCategoria.Text = seleccionado.TipoCat.ToString();
                 imgArticulo.ImageUrl = seleccionado.UrlImagen;
-                lblPrecio.Text = "Precio: " + seleccionado.Precio;
-                
-                //txtImagenUrl.Text = seleccionado.UrlImagen;
-
-                //txtImagenUrl_TextChanged(sender, e);
-
-                //// configurar acciones
-                //if (!seleccionado.Activo)
-                //    btnInactivar.Text = "Reactivar";
+                lblPrecio.Text = "Precio: " + seleccionado.Precio.ToString("C2");
             }
             catch (Exception ex)
             {
-                throw ex;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
     }
