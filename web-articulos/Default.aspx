@@ -7,11 +7,12 @@
 
     <div class="col-6">
         <div class="mb-3">
-            <asp:Label Text="Filtrar" CssClass="form-label" runat="server" />
+            <asp:Label Text="Filtrar por nombre" CssClass="form-label" runat="server" />
             <asp:TextBox ID="txtFiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtFiltro_TextChanged" runat="server" />
             <asp:Button Text="Limpiar Filtro" ID="btnLimpiarFiltro" OnClick="btnLimpiarFiltro_Click" CssClass="btn btn-success btn-sm" runat="server" />
         </div>
     </div>
+
 
     <div class="row row-cols-1 row-cols-md-5 g-4">
 
@@ -19,7 +20,7 @@
             <ItemTemplate>
                 <div class="col">
                     <div class="card">
-                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="...">
+                            <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="..." width="500">
                         <div class="card-body">
                             <h5 class="card-title"><%#Eval("Nombre") %></h5>
                             <p class="card-text"><%#Eval("Descripcion") %></p>

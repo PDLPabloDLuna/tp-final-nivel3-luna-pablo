@@ -2,5 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>Hacer el form para agregar articulos.</h3>
+    <h4>Agregar un artículo</h4>
+    <hr />
+
 </asp:Content>
