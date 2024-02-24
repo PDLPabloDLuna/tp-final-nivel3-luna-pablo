@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <div style="margin-bottom: 14px;">
-        <asp:Label Text="Agregar un articulo" Font-Size="20" runat="server" />
+        <asp:Label ID="lblTitulo" Text="Agregar un articulo" Font-Size="20" runat="server" />
     </div>
     <div class="row">
 
@@ -67,7 +67,7 @@
                         <div class="mb-3">
                             <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" runat="server" />
                         </div>
-                        <%if (ConfirmaEliminacion)
+                        <%if (ConfirmarEliminacion)
                             { %>
                         <div class="mb-3">
                             <asp:CheckBox Text="Confirma Eliminación" ID="chkConfirmaEliminacion" runat="server" />
