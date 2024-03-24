@@ -54,7 +54,7 @@ namespace web_articulos
                     txtId.Text = seleccionado.Id.ToString();
                     txtCodigo.Text = seleccionado.Codigo;
                     txtNombre.Text = seleccionado.Nombre;
-                    txtPrecio.Text = seleccionado.Precio.ToString();
+                    txtPrecio.Text = seleccionado.Precio.ToString("N2");
                     txtDescripcion.Text = seleccionado.Descripcion;
                     txtImagenUrl.Text = seleccionado.UrlImagen;
 
