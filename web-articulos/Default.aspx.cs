@@ -14,6 +14,23 @@ namespace web_articulos
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["id"] != null)
+            {
+                Favorito favNuevo = new Favorito();
+                FavoritoNegocio negocio = new FavoritoNegocio();
+                favNuevo.IdUser = ((Miembro)Session["miembro"]).Id;
+                string idArt = Request.QueryString["id"].ToString();
+                favNuevo.IdArticulo = int.Parse(idArt);
+
+                if (negocio.esFav(favNuevo))
+                {
+                    Session.Add("error", "La entrada de favorito ya existe");
+                    Response.Redirect("Error.aspx");
+                }
+                else
+                    negocio.agregarFav(favNuevo);
+            }
+
             if (!IsPostBack)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
