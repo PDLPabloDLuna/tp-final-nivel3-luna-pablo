@@ -22,6 +22,12 @@ namespace web_articulos
             MiembroNegocio negocio = new MiembroNegocio();
             try
             {
+                if (Validacion.validaTextoVacio(txtEmail) || Validacion.validaTextoVacio(txtPassword))
+                {
+                    Session.Add("error", "Debes completar ambos campos...");
+                    Response.Redirect("Error.aspx");
+                }
+
                 miembro.Email = txtEmail.Text;
                 miembro.Pass = txtPassword.Text;
                 if (negocio.Login(miembro))
@@ -35,10 +41,18 @@ namespace web_articulos
                     Response.Redirect("Error.aspx", false);
                 }
             }
+            catch (System.Threading.ThreadAbortException ex) { }
             catch (Exception ex)
             {
                 Session.Add("error", ex.ToString());
             }
+        }
+
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+            Session.Add("error", exc.ToString());
+            Server.Transfer("Error.aspx");
         }
     }
 }

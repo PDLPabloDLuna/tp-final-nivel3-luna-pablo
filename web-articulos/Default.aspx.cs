@@ -24,7 +24,7 @@ namespace web_articulos
 
                 if (negocio.esFav(favNuevo))
                 {
-                    Session.Add("error", "La entrada de favorito ya existe");
+                    Session.Add("error", "El articulo ya se encuentra en su lista de favoritos");
                     Response.Redirect("Error.aspx");
                 }
                 else

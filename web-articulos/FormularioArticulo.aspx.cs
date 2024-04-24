@@ -74,6 +74,9 @@ namespace web_articulos
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
                 Articulo nuevo = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 

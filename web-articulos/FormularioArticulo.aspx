@@ -1,6 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="FormularioArticulo.aspx.cs" Inherits="web_articulos.FormularioArticulo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .validacion {
+            color: darkred;
+            font-size: 12px;
+        }
+    </style>
+    <script>    
+        function validar() {
+            const txtCodigo = document.getElementById("txtCodigo");
+            const txtNombre = document.getElementById("txtNombre");
+
+            if (txtCodigo.value == "") {
+                txtCodigo.classList.add("is-invalid");
+                txtCodigo.classList.remove("is-valid");
+            }
+            else {
+                txtCodigo.classList.add("is-valid");
+                txtCodigo.classList.remove("is-invalid");
+            }
+            if (txtNombre.value == "") {
+                txtNombre.classList.add("is-invalid");
+                txtNombre.classList.remove("is-valid");
+            }
+            else {
+                txtNombre.classList.add("is-valid");
+                txtNombre.classList.remove("is-invalid");
+            }
+
+            if (txtCodigo.value == "" || txtNombre.value == "")
+                return false;
+            else
+                return true;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -16,11 +50,13 @@
             </div>
             <div class="mb-3">
                 <label for="txtCodigo" class="form-label">Código del artículo: </label>
-                <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control" ClientIDMode="Static" MaxLength="8" />
+                <div class="invalid-feedback">Ingrese un código.</div>
             </div>
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre: </label>
-                <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" ClientIDMode="Static" />
+                <div class="invalid-feedback">Ingrese un nombre.</div>
             </div>
             <div class="mb-3">
                 <label for="ddlMarca" class="form-label">Marca: </label>
@@ -33,9 +69,11 @@
             <div class="mb-3">
                 <label for="txtPrecio" class="form-label">Precio: </label>
                 <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
+                <asp:RangeValidator ErrorMessage="Por favor ingrese el dato con formato correcto" Type="Currency" MinimumValue="0" MaximumValue="10000000" ControlToValidate="txtPrecio" CssClass="validacion" runat="server" />
+                <asp:RequiredFieldValidator ErrorMessage="Ingrese un precio..." ControlToValidate="txtPrecio" CssClass="validacion" runat="server" />
             </div>
             <div class="mb-3" style="margin-top: 30px;">
-                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
+                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" OnClientClick="return validar()" runat="server" />
                 <a href="ArticulosLista.aspx">Cancelar</a>
             </div>
         </div>

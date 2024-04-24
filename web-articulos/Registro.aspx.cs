@@ -20,6 +20,14 @@ namespace web_articulos
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+                if (Validacion.validaTextoVacio(txtEmail) || Validacion.validaTextoVacio(txtPassword))
+                {
+                    Session.Add("error", "Debes completar ambos campos...");
+                    Response.Redirect("Error.aspx");
+                }
                 Miembro user = new Miembro();
                 MiembroNegocio negocio = new MiembroNegocio();
                 EmailService emailService = new EmailService();

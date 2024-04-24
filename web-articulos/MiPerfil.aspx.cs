@@ -40,6 +40,9 @@ namespace web_articulos
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
                 MiembroNegocio negocio = new MiembroNegocio();
                 Miembro user = (Miembro)Session["miembro"];
 

@@ -13,7 +13,7 @@ namespace web_articulos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Page is Login || Page is Default || Page is Registro || Page is Error))
+            if (!(Page is Login || Page is Default || Page is Registro || Page is Error || Page is DetalleArticulo))
             {
                 if (!Seguridad.sesionActiva(Session["miembro"]))
                     Response.Redirect("Login.aspx", false);

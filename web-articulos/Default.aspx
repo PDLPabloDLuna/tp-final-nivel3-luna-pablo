@@ -26,7 +26,7 @@
                             <h5 class="card-title"><%#Eval("Nombre") %></h5>
                             <p class="card-text"><%#Eval("Descripcion") %></p>
                             <p><%#Eval("Precio","{0:c}")%></p>
-                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id")%>" class="btn btn-outline-info">Ver Detalle</a>
+                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id")%>">Ver Detalle</a>
 
                             <%  if (negocio.Seguridad.sesionActiva(Session["miembro"]))
                                 { %>
