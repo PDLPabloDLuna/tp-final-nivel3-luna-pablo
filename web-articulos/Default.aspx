@@ -20,17 +20,19 @@
         <asp:Repeater runat="server" ID="repRepeater">
             <ItemTemplate>
                 <div class="col">
-                    <div class="card">
-                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="..." width="400">
+                    <div class="card h-100" style="background-color: #fcf3cf">
+                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                            <h5 class="card-title" style="font-weight: 700"><%#Eval("Nombre") %></h5>
                             <p class="card-text"><%#Eval("Descripcion") %></p>
                             <p><%#Eval("Precio","{0:c}")%></p>
-                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id")%>">Ver Detalle</a>
+                            <div style="padding-bottom: 5px">
+                                <a href="DetalleArticulo.aspx?id=<%#Eval("Id")%>" class="btn btn-primary">Detalles</a>
+                            </div>
 
                             <%  if (negocio.Seguridad.sesionActiva(Session["miembro"]))
-                                { %>
-                            <a href="Default.aspx?id=<%#Eval("Id")%>" class="btn btn-primary">Añadir a Favoritos</a>
+                                {  %>
+                            <a href="Default.aspx?id=<%#Eval("Id")%>" class="btn btn-dark" style="background-color: purple">Añadir a Favoritos</a>
                             <% } %>
                         </div>
                     </div>

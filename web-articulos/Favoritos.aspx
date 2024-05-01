@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Lista de mis Favoritos</h2>
+    <h2>Mis Favoritos</h2>
 
-    <asp:GridView ID="dgvFavoritos" CssClass="table" AutoGenerateColumns="false" DataKeyNames="Id" OnSelectedIndexChanged="dgvFavoritos_SelectedIndexChanged" 
+    <asp:GridView ID="dgvFavoritos" CssClass="table table-secondary" AutoGenerateColumns="false" DataKeyNames="Id" OnSelectedIndexChanged="dgvFavoritos_SelectedIndexChanged" 
         OnPageIndexChanging="dgvFavoritos_PageIndexChanging"
         AllowPaging="true" PageSize="5" runat="server">
         <Columns>

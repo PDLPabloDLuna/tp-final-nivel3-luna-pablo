@@ -51,7 +51,7 @@
         <% } %>
     </div>
 
-    <asp:GridView ID="dgvArticulos" CssClass="table" AutoGenerateColumns="false" DataKeyNames="Id"
+    <asp:GridView ID="dgvArticulos" CssClass="table table-dark table-striped" AutoGenerateColumns="false" DataKeyNames="Id"
         OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
         OnPageIndexChanging="dgvArticulos_PageIndexChanging"
         AllowPaging="true" PageSize="5" runat="server">
