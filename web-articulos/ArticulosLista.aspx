@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
-        <div class="col-3">
+        <div class="col-5">
             <div class="mb-3">
                 <asp:Label Text="Filtrar" CssClass="form-label" runat="server" />
                 <asp:TextBox ID="txtFiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtFiltro_TextChanged" runat="server" />
@@ -20,7 +20,7 @@
         <%if (FiltroAvanzado)
             {%>
         <div class="row">
-            <div class="col-2">
+            <div class="col-4">
                 <div class="mb-3">
                     <asp:Label Text="Campo" ID="lblCampo" runat="server" />
                     <asp:DropDownList ID="ddlCampo" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged" runat="server">
@@ -30,13 +30,13 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-4">
                 <div class="mb-3">
                     <asp:Label Text="Criterio" runat="server" />
                     <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-4">
                 <div class="mb-3">
                     <asp:Label Text="Filtro" runat="server" />
                     <asp:TextBox ID="txtFiltroAvanzado" CssClass="form-control" runat="server" />
@@ -54,7 +54,7 @@
     <asp:GridView ID="dgvArticulos" CssClass="table table-dark table-striped" AutoGenerateColumns="false" DataKeyNames="Id"
         OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
         OnPageIndexChanging="dgvArticulos_PageIndexChanging"
-        AllowPaging="true" PageSize="5" runat="server">
+        AllowPaging="true" PageSize="8" runat="server">
         <Columns>
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
             <asp:BoundField HeaderText="Marca" DataField="NombreMarca.Descripcion" />

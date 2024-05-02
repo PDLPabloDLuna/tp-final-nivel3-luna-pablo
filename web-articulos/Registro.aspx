@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             <h2>Crear cuenta de usuario</h2>
             <div class="mb-3">
                 <label class="form-label">Email</label>
